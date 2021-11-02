@@ -1,0 +1,33 @@
+1. Basic authrntication is used by default in Django Rest Framework's browsable API. The default authentication schemes may be set globally, using the DEFAULT_AUTHENTICATION_CLASSES setting. For instance:
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
+2. Basic authentication scheme is used by httpie when querying with the -a or --auth option flag.
+
+3. The session authentication is managed by the server-side, the server can decide whether to kick you out or not. The token authentication is stored by the client-side, the user is responsible for keeping it safe.
+By using Token authentication, we don't need to enter username and password, so it prevents the password from being leaked. Also, the token can be stored locally. Moreover, Token Authentication is good for Fine-grained access control.
+
+4. OAuth2 redirects the user to the service provider that hosts user accounts and then authorizes third-party applications to access that user account. For instance, when I click "Log in with Google", the user will be redirected from bitbucket.org to Google. Authentication of username and password is done internally with Google. After successful authentication, the user will be redirected back to bitbucket.org. Then, the user will successfully log in to bitbucket.org and bitbucket.org now can access this user account.
+
+5. https://github.com/liuh9/authentication-lab.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
